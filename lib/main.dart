@@ -7,7 +7,7 @@ void main() {
         backgroundColor: Colors.cyan[600],
         appBar: AppBar(
           brightness: Brightness.light,
-          title: Text('Magic 8 Ball'),
+          title: Text('Ask Me Anything'),
           backgroundColor: Colors.cyan[600],
         ),
         body: BallPage(),
@@ -16,16 +16,30 @@ void main() {
   );
 }
 
-class BallPage extends StatefulWidget {
-  @override
-  _BallPageState createState() => _BallPageState();
-}
-
-class _BallPageState extends State<BallPage> {
+class BallPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      
+      child: Ball(),
+    );
+  }
+}
+
+class Ball extends StatefulWidget {
+  @override
+  _BallState createState() => _BallState();
+}
+
+class _BallState extends State<Ball> {
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: TextButton(
+        onPressed: () {
+          print('I got clicked!');
+        },
+        child: Image.asset('images/ball1.png'),
+      ),
     );
   }
 }
